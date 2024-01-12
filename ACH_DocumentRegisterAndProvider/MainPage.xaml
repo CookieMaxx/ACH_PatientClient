@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ACH_DocumentRegisterAndProvider.MainPage">
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="30,0"
+            Spacing="25">
+            <Label Text="ACH FHIR CDA"
+                   FontSize="Large"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Start"/>
+
+            <!-- Welcome Title -->
+            <StackLayout Padding="20">
+
+                <!-- Full Name -->
+                <Entry x:Name="nameEntry" Placeholder="Name"/>
+                <Entry x:Name="surNameEntry" Placeholder="Surname"/>
+
+                <!-- Gender -->
+                <Picker x:Name="genderPicker" Title="Select Gender">
+                </Picker>
+
+                <!-- Date of Birth -->
+                <DatePicker x:Name="dateOfBirthPicker" Format="dd/MM/yyyy"/>
+
+                <!-- Contact Information -->
+                <Entry x:Name="addressEntry" Placeholder="Address"/>
+                <Entry x:Name="phoneEntry" Placeholder="Phone Number" Keyboard="Telephone"/>
+                <Entry x:Name="emailEntry" Placeholder="Email" Keyboard="Email"/>
+
+
+
+            </StackLayout>
+
+
+            <ListView x:Name="PatientsListView">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextCell Text="{Binding Name[0].Given[0]} {Binding Name[0].Family}" Detail="{Binding Id}" />
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+
+            <!-- CDA Creation and FHIR Communication -->
+            <StackLayout Orientation="Horizontal" Spacing="1">
+                <Button Text="Send" HorizontalOptions="FillAndExpand" Clicked="SubmitButton_Clicked"/>
+                <Button Text="View Patients" HorizontalOptions="FillAndExpand" Clicked="ViewPatients_Clicked"/>
+            </StackLayout>
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

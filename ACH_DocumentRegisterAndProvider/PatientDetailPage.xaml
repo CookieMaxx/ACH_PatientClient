@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ACH_DocumentRegisterAndProvider.PatientDetailPage"
+             Title="PatientDetailPage">
+    <ScrollView>
+        <StackLayout Padding="10">
+            <Label x:Name="NameLabel" Text="Name" />
+            <Label x:Name="GenderLabel" Text="Gender" />
+            <Label x:Name="BirthDateLabel" Text="Birthdate" />
+            <Label x:Name="AddressLabel" Text="Address" />
+            <Label x:Name="PhoneLabel" Text="Phone" />
+            <Label x:Name="EmailLabel" Text="Email" />
+        </StackLayout>
+    </ScrollView>
+</ContentPage>
