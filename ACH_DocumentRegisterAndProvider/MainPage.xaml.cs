@@ -56,8 +56,7 @@ namespace ACH_DocumentRegisterAndProvider
             {
                 var patients = await GetAllPatients();
                 if (patients != null)
-                {
-                    // Assuming you have a ListView or CollectionView named PatientsListView
+                {        
                     PatientsListView.ItemsSource = patients;
                     PatientsListView.ItemSelected += OnPatientSelected;
                 }
@@ -73,7 +72,6 @@ namespace ACH_DocumentRegisterAndProvider
             var client = new FhirClient("http://54.93.124.150:8080/fhir/");
             try
             {
-                // This is a basic example, in reality, you'll need to handle pagination
                 var bundle = await client.SearchAsync<Patient>();
                 return bundle.Entry.Select(entry => entry.Resource as Patient).ToList();
             }
@@ -88,7 +86,6 @@ namespace ACH_DocumentRegisterAndProvider
         {
             if (e.SelectedItem is Patient patient)
             {
-                // Navigate to the patient details page
                 Navigation.PushAsync(new PatientDetailPage(patient));
             }
         }
@@ -107,12 +104,10 @@ namespace ACH_DocumentRegisterAndProvider
 
                 if (response != null)
                 {
-                    // If the response contains an ID, it indicates success
                     await DisplayAlert("Success", "Patient data successfully submitted. ID: " + response, "OK");
                 }
                 else
                 {
-                    // If there's no ID in the response, it indicates an issue with the submission
                     await DisplayAlert("Error", "Data submission failed.", "OK");
                 }
             }
